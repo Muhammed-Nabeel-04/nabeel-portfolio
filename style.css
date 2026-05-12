@@ -532,7 +532,7 @@ footer{
     white-space: nowrap;
   }
   .nav-cta {
-    padding: 0.4rem 0.75rem;
+    padding: 0.4rem 0.9rem;
     font-size: 0.75rem;
     border-radius: 6px;
     white-space: nowrap;
@@ -541,12 +541,12 @@ footer{
   
   #hero{flex-direction:column;padding:7rem 1.5rem 3rem;gap:3rem;text-align:left}
   .hero-visual{display:flex; width: 100%; margin-top: 2rem; justify-content: center;}
-  .hero-title{font-size:2.2rem}
+  .hero-title{font-size:1.8rem; line-height: 1.1;}
   
-  .about-grid{grid-template-columns:1fr;gap:2.5rem}
+  .about-grid{grid-template-columns:1fr;gap:2rem}
   #about,#work,#skills,#contact{padding:4rem 1.5rem}
   .project-card{grid-template-columns:1fr}
-  .project-meta{align-items:flex-start;flex-direction:row;flex-wrap:wrap}
+  .project-meta{flex-direction:row; flex-wrap:wrap; align-items:flex-start; gap:0.75rem}
   .hero-stats{gap:1.5rem}
   
   .cursor, .cursor-ring { display: none !important; }
