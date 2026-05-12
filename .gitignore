@@ -1,0 +1,9 @@
+.DS_Store
+node_modules/
+.env
+*.log
+.gemini/
+MEMORY.md
+GEMINI.md
+nabeel_portfolio.html
+nabeel_portfolio_v2.html

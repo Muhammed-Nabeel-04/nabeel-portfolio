@@ -1,0 +1,332 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Muhammed Nabeel — Full Stack Developer</title>
+<link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Sans:ital,wght@0,300;0,400;0,500;1,300&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<div class="cursor" id="cur"></div>
+<div class="cursor-ring" id="curRing"></div>
+<div id="curLabel"></div>
+
+<canvas id="aurora"></canvas>
+
+<nav>
+  <a href="#hero" class="nav-logo">MN<span>.</span></a>
+  <ul class="nav-links">
+    <li><a href="#about">About</a></li>
+    <li><a href="#work">Work</a></li>
+    <li><a href="#skills">Skills</a></li>
+    <li><a href="#contact">Contact</a></li>
+  </ul>
+  <a href="https://mail.google.com/mail/?view=cm&fs=1&to=nabeelmdnabeel1229@gmail.com" target="_blank" class="nav-cta" data-icon="🚀" data-label="Let's build!">Hire me</a>
+</nav>
+
+<!-- HERO -->
+<section id="hero">
+  <div class="hero-left">
+    <div class="hero-tag" data-icon="✨" data-label="Open for work">Available for opportunities</div>
+    <h1 class="hero-title">Hi, I'm<br><span>Muhammed Nabeel.</span></h1>
+    <p class="hero-sub">
+      <strong>Full-Stack Developer</strong> building cross-platform apps with Flutter & FastAPI.
+      I ship production-grade products fast — from design to deployment.
+    </p>
+    <div class="hero-actions">
+      <a href="#work" class="btn-primary">View my work</a>
+      <a href="#contact" class="btn-outline">Get in touch</a>
+    </div>
+    <div class="hero-stats">
+      <div>
+        <div class="stat-num">3</div>
+        <div class="stat-label">Projects shipped</div>
+      </div>
+      <div>
+        <div class="stat-num">97%</div>
+        <div class="stat-label">ML accuracy</div>
+      </div>
+      <div>
+        <div class="stat-num">2026</div>
+        <div class="stat-label">B.Tech graduate</div>
+      </div>
+    </div>
+  </div>
+  <div class="hero-visual">
+    <div class="terminal-wrap" id="termWrap" data-icon="💻" data-label="System Live">
+      <div class="thought-stream" id="thoughtStream">
+        <div class="neural-brain" id="neuralBrain">
+          <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M9.5 2C8.11929 2 7 3.11929 7 4.5C7 4.77341 7.04394 5.03651 7.125 5.28125C5.29524 5.75336 4 7.41163 4 9.5C4 11.0253 4.6943 12.3853 5.78125 13.2812C5.29176 13.6841 5 14.3031 5 15C5 16.1046 5.89543 17 7 17C7.14302 17 7.28038 16.985 7.4125 16.9563C8.1064 18.723 9.80556 20 11.8125 20C12.3739 20 12.9105 19.8971 13.4062 19.7125C13.9118 20.4851 14.7865 21 15.7812 21C17.4381 21 18.7812 19.6569 18.7812 18C18.7812 17.8437 18.769 17.6908 18.745 17.5422C20.0864 16.6322 21 15.068 21 13.2812C21 11.751 20.301 10.3846 19.2062 9.4875C19.7027 9.08868 20 8.47648 20 7.78125C20 6.54131 18.9912 5.53125 17.75 5.53125C17.6534 5.53125 17.5587 5.53738 17.4656 5.54922C16.7628 3.52187 14.8519 2.09375 12.5938 2.09375C12.3308 2.09375 12.0746 2.11504 11.825 2.15625C11.2384 2.05608 10.6315 2 10 2H9.5ZM9.5 4H10C10.5185 4 11.0118 4.08625 11.4688 4.24375C11.5833 4.28312 11.6963 4.32782 11.8062 4.37812C12.054 4.545 12.2858 4.73711 12.5 4.95312C12.7142 4.73711 12.946 4.545 13.1938 4.37812C13.3037 4.32782 13.4167 4.28312 13.5312 4.24375C13.9882 4.08625 14.4815 4 15 4C15.8284 4 16.5 4.67157 16.5 5.5C16.5 5.51044 16.5001 5.52084 16.5002 5.5312C15.9329 5.5312 15.4057 5.71761 14.9688 6.03125C13.9059 6.79427 13.25 8.0463 13.25 9.4375C13.25 9.61011 13.2611 9.77978 13.2825 9.94635C13.1894 9.92813 13.0938 9.91875 12.9962 9.91875C11.8916 9.91875 10.9962 10.8142 10.9962 11.9188C10.9962 12.3023 11.1039 12.6599 11.2888 12.9656C10.2313 13.1415 9.25 13.881 9.25 15.0312C9.25 15.4374 9.40058 15.808 9.64688 16.0844C8.75128 16.2991 8.09375 17.0984 8.09375 18.0625C8.09375 18.1042 8.09503 18.1456 8.09756 18.1867C7.38263 17.7656 6.90625 16.9892 6.90625 16.0938C6.90625 15.9372 6.92082 15.7843 6.94824 15.6367C7.62562 15.2711 8.08125 14.5583 8.08125 13.7375C8.08125 13.5649 8.06212 13.3952 8.02617 13.2317C9.33709 12.5539 10.25 11.1831 10.25 9.59375C10.25 8.04167 9.37341 6.69176 8.09688 5.99687C8.34317 5.72051 8.49375 5.35336 8.49375 4.94688C8.49375 4.42392 8.2798 3.95085 7.9375 3.60938C8.38466 3.23267 8.96347 3 9.6 3H10.1C10.6006 3 11.0805 3.10977 11.5156 3.30625C11.1866 3.49323 10.916 3.76383 10.7291 4.09277C10.294 3.89629 9.81412 3.78652 9.3135 3.78652H8.8135C8.42308 3.78652 8.07008 3.92656 7.7981 4.15625C8.1404 4.49772 8.35435 4.97079 8.35435 5.49375C8.35435 5.90023 8.20377 6.26738 7.95747 6.54374C9.234 7.23863 10.1106 8.58854 10.1106 10.1406C10.1106 11.7299 9.1977 13.1008 7.88677 13.7786C7.92272 13.9421 7.94185 14.1118 7.94185 14.2844C7.94185 15.1052 7.48622 15.8179 6.80884 16.1835C6.78142 16.3311 6.76685 16.484 6.76685 16.6406C6.76685 17.5361 7.24323 18.3125 7.95816 18.7335C7.95563 18.6924 7.95435 18.651 7.95435 18.6094C7.95435 17.6453 8.61188 16.8459 9.50748 16.6313C9.26118 16.3549 9.1106 15.578C9.1106 14.4279 10.0919 13.6883 11.1494 13.5125C11.1765 14.2068 11.0688 13.8492 11.0688 13.4656C11.0688 12.3611 11.9642 11.4656 13.0688 11.4656C13.1664 11.4656 13.262 11.475 13.3551 11.4932C13.3337 11.3266 13.3226 11.157 13.3226 10.9844C13.3226 9.59317 13.9785 8.34114 15.0414 7.57812C15.4783 7.26449 16.0055 7.07808 16.5728 7.07808V7.07808Z" fill="var(--purple)" />
+          </svg>
+        </div>
+      </div>
+      <div class="terminal-glow"></div>
+      <div class="terminal">
+        <div class="term-bar">
+          <div class="term-dots">
+            <div class="dot dot-r"></div>
+            <div class="dot dot-y"></div>
+            <div class="dot dot-g"></div>
+          </div>
+          <span class="term-title">terminal.py</span>
+        </div>
+        <div class="term-body">
+          <div id="typeTarget"></div>
+        </div>
+        <div class="term-footer">
+          <div class="term-status"></div>
+          <span class="term-status-text">server running · port 8000</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ABOUT -->
+<section id="about">
+  <div class="reveal">
+    <p class="section-label">About me</p>
+    <h2 class="section-title">Builder at heart,<br>developer by trade.</h2>
+  </div>
+  <div class="about-grid reveal">
+    <div>
+      <div class="about-text">
+        <p>I'm a 2026 B.Tech graduate in <strong>AI & Data Science</strong> from Dhaanish Ahmed Institute of Technology, Coimbatore.</p>
+        <p>I specialise in building complete full-stack applications — from <strong>Flutter mobile UIs</strong> to <strong>FastAPI backends</strong> — and deploying them with Docker on Railway and Render.</p>
+        <p>My projects span cybersecurity, college management, and student evaluation systems — all shipped end-to-end with clean architecture, JWT auth, and CI/CD pipelines.</p>
+      </div>
+      <div class="skills-list" style="margin-top:1.5rem">
+        <span class="skill-tag" data-icon="💙" data-label="Flutter">Flutter</span>
+        <span class="skill-tag" data-icon="⚡" data-label="FastAPI">FastAPI</span>
+        <span class="skill-tag" data-icon="🐍" data-label="Python">Python</span>
+        <span class="skill-tag" data-icon="🎯" data-label="Dart">Dart</span>
+        <span class="skill-tag" data-icon="🐋" data-label="Docker">Docker</span>
+        <span class="skill-tag" data-icon="🐘" data-label="PostgreSQL">PostgreSQL</span>
+        <span class="skill-tag" data-icon="🤖" data-label="Claude Code">Claude Code</span>
+        <span class="skill-tag" data-icon="💻" data-label="GitHub Copilot">GitHub Copilot</span>
+      </div>
+    </div>
+    <div class="about-cards">
+      <div class="about-card" data-icon="🎓" data-label="Education">
+        <div class="card-icon">🎓</div>
+        <div>
+          <div class="card-title">Education</div>
+          <div class="card-body">B.Tech in AI & Data Science<br>CGPA: 7.7 · 2022–2026</div>
+        </div>
+      </div>
+      <div class="about-card" data-icon="💼" data-label="Experience">
+        <div class="card-icon">💼</div>
+        <div>
+          <div class="card-title">Internships</div>
+          <div class="card-body">Codtech IT Solutions (Remote)<br>Postulate Info Tech (On-site)</div>
+        </div>
+      </div>
+      <div class="about-card" data-icon="📍" data-label="Location">
+        <div class="card-icon">📍</div>
+        <div>
+          <div class="card-title">Location</div>
+          <div class="card-body">Malappuram, Kerala, India<br>Open to remote & hybrid roles</div>
+        </div>
+      </div>
+      <div class="about-card" data-icon="⚡" data-label="Working style">
+        <div class="card-icon">⚡</div>
+        <div>
+          <div class="card-title">Working style</div>
+          <div class="card-body">AI-assisted development · Fast shipper<br>Clean code · End-to-end ownership</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- WORK -->
+<section id="work">
+  <div class="reveal">
+    <p class="section-label">Projects</p>
+    <h2 class="section-title">Things I've built<br>and shipped.</h2>
+  </div>
+  <div class="projects-grid">
+
+    <div class="project-card reveal" data-icon="🛡️" data-label="Cybersecurity">
+      <div>
+        <div class="project-header">
+          <span class="project-num">01</span>
+          <span class="project-badge badge-final" data-icon="🎓" data-label="Thesis">Final Year Project</span>
+          <span class="project-badge badge-ai" data-icon="🧠" data-label="AI Research">AI · Security</span>
+        </div>
+        <div class="project-name">PraesidiumX — Cybersecurity Threat Intelligence Platform</div>
+        <div class="project-desc">Full-stack cross-platform app that analyses network traffic CSV files and classifies 14 attack types (DDoS, PortScan, BruteForce, Web Attacks) from the CICIDS2017 dataset. Random Forest classifier + PyTorch Autoencoder for anomaly detection with SHAP explainability. Deployed on Railway with Docker and PostgreSQL in production.</div>
+        <div class="project-stack">
+          <span class="stack-tag" data-icon="💙" data-label="Flutter">Flutter</span>
+          <span class="stack-tag" data-icon="⚡" data-label="FastAPI">FastAPI</span>
+          <span class="stack-tag" data-icon="📊" data-label="scikit-learn">scikit-learn</span>
+          <span class="stack-tag" data-icon="🔥" data-label="PyTorch">PyTorch</span>
+          <span class="stack-tag" data-icon="🔍" data-label="SHAP">SHAP</span>
+          <span class="stack-tag" data-icon="🐘" data-label="PostgreSQL">PostgreSQL</span>
+          <span class="stack-tag" data-icon="🐋" data-label="Docker">Docker</span>
+          <span class="stack-tag" data-icon="🔑" data-label="JWT">JWT</span>
+          <span class="stack-tag" data-icon="🛤️" data-label="Railway">Railway</span>
+        </div>
+      </div>
+      <div class="project-meta">
+        <div class="project-date">APR 2025</div>
+        <div>
+          <div class="project-stat">96–97%</div>
+          <div class="project-stat-label">classification accuracy</div>
+        </div>
+        <a href="https://github.com/Muhammed-Nabeel-04/praesidiumx-api" target="_blank" class="project-link" data-icon="⌥" data-label="Source code">GitHub ↗</a>
+      </div>
+    </div>
+
+    <div class="project-card reveal" data-icon="🎓" data-label="OCR Education">
+      <div>
+        <div class="project-header">
+          <span class="project-num">02</span>
+          <span class="project-badge badge-ai" data-icon="👁️" data-label="Vision AI">Education · OCR</span>
+        </div>
+        <div class="project-name">SSM — Student Success Matrix</div>
+        <div class="project-desc">Multi-role college evaluation platform with Admin, Mentor, HOD, and Student roles across a structured approval workflow. Students submit self-evaluation forms and activity proofs — built-in OCR auto-reads certificate details from uploaded images. Admin dashboard displays analytics and top student rankings. CI/CD via GitHub Actions.</div>
+        <div class="project-stack">
+          <span class="stack-tag" data-icon="💙" data-label="Flutter">Flutter</span>
+          <span class="stack-tag" data-icon="⚡" data-label="FastAPI">FastAPI</span>
+          <span class="stack-tag" data-icon="🐍" data-label="Python">Python</span>
+          <span class="stack-tag" data-icon="👁️" data-label="OCR Engine">OCR</span>
+          <span class="stack-tag" data-icon="🚀" data-label="GitHub Actions">GitHub Actions</span>
+          <span class="stack-tag" data-icon="🛡️" data-label="RBAC Auth">Multi-role Auth</span>
+          <span class="stack-tag" data-icon="🔄" data-label="Pipeline">CI/CD</span>
+        </div>
+      </div>
+      <div class="project-meta">
+        <div class="project-date">MAR 2025</div>
+        <div>
+          <div class="project-stat">4</div>
+          <div class="project-stat-label">user roles</div>
+        </div>
+        <a href="https://github.com/Muhammed-Nabeel-04/SSM-project" target="_blank" class="project-link" data-icon="⌥" data-label="Source code">GitHub ↗</a>
+      </div>
+    </div>
+
+    <div class="project-card reveal" data-icon="🏫" data-label="Campus App">
+      <div>
+        <div class="project-header">
+          <span class="project-num">03</span>
+          <span class="project-badge badge-ai" data-icon="📱" data-label="Mobile Ecosystem">Mobile · Management</span>
+        </div>
+        <div class="project-name">Smart Campus Assistant — College Management Ecosystem</div>
+        <div class="project-desc">Multi-role mobile application covering QR-based attendance, digital timetables, grievance escalation, and an activity-based student scoring system. Implements role-based access control (RBAC) across 5 user types: Student, Faculty, Mentor, HOD, and Principal. Clean Flutter UI with FastAPI backend and SQLite storage.</div>
+        <div class="project-stack">
+          <span class="stack-tag" data-icon="💙" data-label="Flutter">Flutter</span>
+          <span class="stack-tag" data-icon="⚡" data-label="FastAPI">FastAPI</span>
+          <span class="stack-tag" data-icon="📁" data-label="SQLite">SQLite</span>
+          <span class="stack-tag" data-icon="🔑" data-label="JWT">JWT</span>
+          <span class="stack-tag" data-icon="🛡️" data-label="RBAC">RBAC</span>
+          <span class="stack-tag" data-icon="🔗" data-label="RESTful">REST API</span>
+          <span class="stack-tag" data-icon="🏁" data-label="QR Logic">QR Code</span>
+        </div>
+      </div>
+      <div class="project-meta">
+        <div class="project-date">JAN 2025</div>
+        <div>
+          <div class="project-stat">5</div>
+          <div class="project-stat-label">user roles</div>
+        </div>
+        <a href="https://github.com/Muhammed-Nabeel-04" target="_blank" class="project-link" data-icon="⌥" data-label="Source code">GitHub ↗</a>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- SKILLS -->
+<section id="skills">
+  <div class="reveal">
+    <p class="section-label">Skills</p>
+    <h2 class="section-title">What I work with.</h2>
+  </div>
+  <div class="skills-grid reveal">
+    <div class="skill-card">
+      <div class="skill-cat">Languages</div>
+      <div class="skill-items">
+        <span class="skill-item" data-icon="🐍" data-label="Python">Python</span>
+        <span class="skill-item" data-icon="🎯" data-label="Dart">Dart</span>
+        <span class="skill-item" data-icon="🟨" data-label="JavaScript">JavaScript</span>
+        <span class="skill-item" data-icon="🌐" data-label="HTML">HTML</span>
+        <span class="skill-item" data-icon="🎨" data-label="CSS">CSS</span>
+        <span class="skill-item" data-icon="☕" data-label="Java">Java</span>
+      </div>
+    </div>
+    <div class="skill-card">
+      <div class="skill-cat">Frameworks</div>
+      <div class="skill-items">
+        <span class="skill-item" data-icon="💙" data-label="Flutter">Flutter</span>
+        <span class="skill-item" data-icon="⚡" data-label="FastAPI">FastAPI</span>
+      </div>
+    </div>
+    <div class="skill-card">
+      <div class="skill-cat">Backend & DB</div>
+      <div class="skill-items">
+        <span class="skill-item" data-icon="🔗" data-label="REST APIs">REST APIs</span>
+        <span class="skill-item" data-icon="🔑" data-label="JWT">JWT</span>
+        <span class="skill-item" data-icon="🛡️" data-label="RBAC">RBAC</span>
+        <span class="skill-item" data-icon="🐘" data-label="PostgreSQL">PostgreSQL</span>
+        <span class="skill-item" data-icon="📁" data-label="SQLite">SQLite</span>
+        <span class="skill-item" data-icon="🐬" data-label="MySQL">MySQL</span>
+        <span class="skill-item" data-icon="⚡" data-label="Supabase">Supabase</span>
+      </div>
+    </div>
+    <div class="skill-card">
+      <div class="skill-cat">DevOps & Tools</div>
+      <div class="skill-items">
+        <span class="skill-item" data-icon="🐋" data-label="Docker">Docker</span>
+        <span class="skill-item" data-icon="🚀" data-label="GitHub Actions">GitHub Actions</span>
+        <span class="skill-item" data-icon="🛤️" data-label="Railway">Railway</span>
+        <span class="skill-item" data-icon="☁️" data-label="Render">Render</span>
+        <span class="skill-item" data-icon="⛅" data-label="Cloudflare">Cloudflare</span>
+        <span class="skill-item" data-icon="🌿" data-label="Git">Git</span>
+      </div>
+    </div>
+    <div class="skill-card">
+      <div class="skill-cat">AI & Vibe Coding</div>
+      <div class="skill-items">
+        <span class="skill-item" data-icon="🤖" data-label="Claude Code">Claude Code</span>
+        <span class="skill-item" data-icon="💻" data-label="GitHub Copilot">GitHub Copilot</span>
+        <span class="skill-item" data-icon="🖱️" data-label="Cursor IDE">Cursor IDE</span>
+        <span class="skill-item" data-icon="🧠" data-label="Prompt Eng.">Prompt Eng.</span>
+      </div>
+    </div>
+    <div class="skill-card">
+      <div class="skill-cat">Machine Learning</div>
+      <div class="skill-items">
+        <span class="skill-item" data-icon="📊" data-label="scikit-learn">scikit-learn</span>
+        <span class="skill-item" data-icon="🔥" data-label="PyTorch">PyTorch</span>
+        <span class="skill-item" data-icon="🌲" data-label="Random Forest">Random Forest</span>
+        <span class="skill-item" data-icon="📉" data-label="Autoencoder">Autoencoder</span>
+        <span class="skill-item" data-icon="🔍" data-label="SHAP">SHAP</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section id="contact">
+  <div class="reveal">
+    <h2 class="contact-glow">Let's build<br>something <span>great.</span></h2>
+    <p class="contact-sub">I'm open to full-time roles, freelance projects, and interesting collaborations. Drop me a message — I respond fast.</p>
+    <div class="contact-links">
+      <a href="https://mail.google.com/mail/?view=cm&fs=1&to=nabeelmdnabeel1229@gmail.com" target="_blank" class="contact-link email">✉ Email me</a>
+      <a href="https://github.com/Muhammed-Nabeel-04" target="_blank" class="contact-link github">⌥ GitHub</a>
+      <a href="https://www.linkedin.com/in/muhammed--nabeel-/" target="_blank" class="contact-link linkedin">in LinkedIn</a>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <p>Designed & built by Muhammed Nabeel · 2026</p>
+</footer>
+
+<script src="script.js"></script>
+</body>
+</html>
