@@ -520,9 +520,10 @@ footer{
   nav{padding:1rem 1.5rem}
   .nav-links{gap:1rem}
   .nav-links a{font-size:0.8rem}
+  .nav-cta { padding: 0.4rem 0.8rem; font-size: 0.75rem; border-radius: 6px; }
   
-  #hero{flex-direction:column;padding:7rem 1.5rem 3rem;gap:3rem}
-  .hero-visual{display:none}
+  #hero{flex-direction:column;padding:7rem 1.5rem 3rem;gap:3rem;text-align:left}
+  .hero-visual{display:flex; width: 100%; margin-top: 2rem; justify-content: center;}
   .hero-title{font-size:2.2rem}
   
   .about-grid{grid-template-columns:1fr;gap:2.5rem}
