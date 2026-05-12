@@ -184,6 +184,7 @@ section{position:relative;z-index:2}
   transition: transform 0.1s ease-out;
   transform-style: preserve-3d;
   cursor: pointer;
+  overflow: visible;
 }
 .terminal-glow{
   position:absolute;inset:-30px;
@@ -241,9 +242,9 @@ section{position:relative;z-index:2}
 /* Terminal Emotions - Neural Brain Structure */
 .thought-stream{
   position:absolute;
-  top:5%;right:-180px;
-  width:160px;pointer-events:none;z-index:10;
-  display:flex;flex-direction:column;align-items:center;gap:15px;
+  top:-95px;right:20px;
+  width:auto;pointer-events:none;z-index:10;
+  display:flex;flex-direction:row-reverse;align-items:center;gap:15px;
   transform: translateZ(30px);
 }
 .neural-brain{
@@ -517,11 +518,19 @@ footer{
 
 @media(max-width:900px){
   nav{padding:1rem 1.5rem}
+  .nav-links{gap:1rem}
+  .nav-links a{font-size:0.8rem}
+  
   #hero{flex-direction:column;padding:7rem 1.5rem 3rem;gap:3rem}
-  .hero-visual{padding-left:0;width:100%}
+  .hero-visual{display:none}
+  .hero-title{font-size:2.2rem}
+  
   .about-grid{grid-template-columns:1fr;gap:2.5rem}
   #about,#work,#skills,#contact{padding:4rem 1.5rem}
   .project-card{grid-template-columns:1fr}
   .project-meta{align-items:flex-start;flex-direction:row;flex-wrap:wrap}
   .hero-stats{gap:1.5rem}
+  
+  .cursor, .cursor-ring { display: none !important; }
+  body { cursor: auto; }
 }
