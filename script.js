@@ -371,3 +371,43 @@ const obs = new IntersectionObserver(entries => {
   entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('visible') } });
 }, { threshold: 0.12 });
 reveals.forEach(r => obs.observe(r));
+
+// --- CONTACT FORM AJAX ---
+const contactForm = document.querySelector('.contact-form');
+if (contactForm) {
+  contactForm.addEventListener('submit', async (e) => {
+    e.preventDefault();
+    const btn = contactForm.querySelector('button[type="submit"]');
+    const originalText = btn.innerHTML;
+    
+    // Loading state
+    btn.disabled = true;
+    btn.innerHTML = '<span>⏳</span> <span>Sending...</span>';
+    
+    const formData = new FormData(contactForm);
+    try {
+      const response = await fetch(contactForm.action, {
+        method: 'POST',
+        body: formData,
+        headers: { 'Accept': 'application/json' }
+      });
+      
+      if (response.ok) {
+        btn.innerHTML = '<span>✅</span> <span>Sent!</span>';
+        contactForm.reset();
+        await showThought('🚀', 'Message sent! I\'ll get back to you soon.', 4000);
+      } else {
+        throw new Error();
+      }
+    } catch (err) {
+      btn.innerHTML = '<span>❌</span> <span>Error</span>';
+      await showThought('⚠️', 'Oops! Something went wrong. Try again?', 4000);
+    } finally {
+      setTimeout(() => {
+        btn.disabled = false;
+        btn.innerHTML = originalText;
+      }, 3000);
+    }
+  });
+}
+

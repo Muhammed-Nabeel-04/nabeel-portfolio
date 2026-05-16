@@ -512,6 +512,48 @@ footer{
 ::-webkit-scrollbar-track{background:var(--bg)}
 ::-webkit-scrollbar-thumb{background:var(--purple);border-radius:4px}
 
+/* CONTACT FORM */
+.contact-form {
+  max-width: 600px;
+  margin: 3rem auto 0;
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+  text-align: left;
+}
+.form-group {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1.25rem;
+}
+.contact-form input,
+.contact-form textarea {
+  background: rgba(255,255,255,0.03);
+  border: 0.5px solid var(--border);
+  border-radius: 8px;
+  padding: 0.9rem 1.2rem;
+  color: var(--text);
+  font-family: inherit;
+  font-size: 0.95rem;
+  transition: border-color 0.2s, background 0.2s;
+}
+.contact-form input:focus,
+.contact-form textarea:focus {
+  outline: none;
+  border-color: var(--purple);
+  background: rgba(124,92,252,0.05);
+}
+.form-actions {
+  display: flex;
+  gap: 1rem;
+  justify-content: center;
+  margin-top: 1rem;
+}
+.contact-form button {
+  border: none;
+  cursor: pointer;
+}
+
 /* REVEAL */
 .reveal{opacity:0;transform:translateY(28px);transition:opacity 0.65s ease,transform 0.65s ease}
 .reveal.visible{opacity:1;transform:none}
@@ -548,6 +590,18 @@ footer{
   .project-card{grid-template-columns:1fr}
   .project-meta{flex-direction:row; flex-wrap:wrap; align-items:flex-start; gap:0.75rem}
   .hero-stats{gap:1.5rem}
+
+  .form-group {
+    grid-template-columns: 1fr;
+  }
+  .form-actions {
+    flex-direction: column;
+  }
+  .form-actions a, .form-actions button {
+    width: 100%;
+    text-align: center;
+    justify-content: center;
+  }
   
   .cursor, .cursor-ring { display: none !important; }
   body { cursor: auto; }
