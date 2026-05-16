@@ -560,8 +560,12 @@ footer{
 
 @media(max-width:900px){
   nav {
-    padding: 1rem 1.5rem;
+    display: flex;
     justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    padding: 1rem 1.25rem;
+    box-sizing: border-box;
   }
   .nav-links {
     display: none;
@@ -570,10 +574,13 @@ footer{
     display: none;
   }
   .nav-cta {
+    position: fixed;
+    right: 1.25rem;
+    top: 0.75rem;
     padding: 0.45rem 1rem;
     font-size: 0.82rem;
     white-space: nowrap;
-    flex-shrink: 0;
+    z-index: 200;
   }
   
   #hero{flex-direction:column;padding:7rem 1.5rem 3rem;gap:3rem;text-align:left}
