@@ -523,7 +523,6 @@ class CoverflowGallery {
         x = 0; z = 120; rotY = 0;
         opacity = 1; blur = 0; brightness = 1;
         card.style.zIndex = 100;
-        card.style.borderColor = 'var(--purple)';
         card.classList.add('active');
       } else {
         x = sign * (130 + (absOffset - 1) * 70);
@@ -533,7 +532,6 @@ class CoverflowGallery {
         blur = absOffset * 1.5;
         brightness = 1 - (absOffset * 0.25);
         card.style.zIndex = 100 - absOffset;
-        card.style.borderColor = 'rgba(255,255,255,0.1)';
         card.classList.remove('active');
       }
       
@@ -565,9 +563,9 @@ const cyberGallery = new CoverflowGallery({
     "assets/cyber_app/03_Analysis_Loading.png",
     "assets/cyber_app/04_Analysis_Result.png",
     "assets/cyber_app/05_Dashboard_Screen.png",
-    "assets/cyber_app/06_Security_analytics_Screen",
-    "assets/cyber_app/07_Details_SHAP.png",
-    "assets/cyber_app/02_Hoistory.png",
+    "assets/cyber_app/06_History_Screen.png",
+    "assets/cyber_app/07_ML_Details_SHAP.png",
+    "assets/cyber_app/02_Hoistory.png"
   ]
 });
 
