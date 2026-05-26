@@ -411,3 +411,258 @@ if (contactForm) {
   });
 }
 
+// --- REUSABLE COVERFLOW GALLERY LOGIC ---
+const lightbox = document.getElementById('lightbox');
+const lightboxImg = lightbox.querySelector('img');
+
+class CoverflowGallery {
+  static instances = [];
+
+  constructor(config) {
+    this.toggleBtn = document.getElementById(config.toggleId);
+    this.container = document.getElementById(config.containerId);
+    this.stage = document.getElementById(config.stageId);
+    this.scene = document.getElementById(config.sceneId);
+    this.images = config.images;
+    
+    this.currentIdx = 0;
+    this.autoRotateInterval = null;
+    this.ecoCards = [];
+    
+    CoverflowGallery.instances.push(this);
+    this.init();
+  }
+
+  init() {
+    this.scene.innerHTML = '';
+    
+    this.images.forEach((src, i) => {
+      const card = document.createElement('div');
+      card.className = 'eco-card';
+      card.innerHTML = `
+        <div class="eco-card-inner">
+          <div class="eco-card-glare"></div>
+          <img src="${src}" alt="Screenshot ${i+1}">
+        </div>
+      `;
+      card.dataset.index = i;
+      card.setAttribute('data-icon', '🖼️');
+      card.setAttribute('data-label', 'View');
+      this.scene.appendChild(card);
+      this.ecoCards.push(card);
+      
+      card.addEventListener('click', () => {
+        if (this.currentIdx === i) {
+          lightboxImg.src = src;
+          lightbox.classList.add('active');
+          clearInterval(this.autoRotateInterval);
+        } else {
+          this.currentIdx = i;
+          this.updateCarousel();
+          this.startAutoRotate();
+        }
+      });
+    });
+
+    this.updateCarousel();
+
+    this.toggleBtn.addEventListener('click', () => {
+      const isCollapsed = this.container.classList.contains('collapsed');
+      
+      if (isCollapsed) {
+        // Close all other open galleries
+        CoverflowGallery.instances.forEach(gallery => {
+          if (gallery !== this && !gallery.container.classList.contains('collapsed')) {
+            gallery.container.classList.add('collapsed');
+            gallery.toggleBtn.classList.remove('active');
+            gallery.toggleBtn.querySelector('span').innerText = 'Explore Ecosystem Hub';
+            clearInterval(gallery.autoRotateInterval);
+          }
+        });
+
+        this.container.classList.remove('collapsed');
+        this.toggleBtn.classList.add('active');
+        this.toggleBtn.querySelector('span').innerText = 'Close Ecosystem Hub';
+        setTimeout(() => { this.scene.style.opacity = '1'; }, 100);
+        this.startAutoRotate();
+      } else {
+        this.container.classList.add('collapsed');
+        this.toggleBtn.classList.remove('active');
+        this.toggleBtn.querySelector('span').innerText = 'Explore Ecosystem Hub';
+        clearInterval(this.autoRotateInterval);
+      }
+    });
+
+    this.stage.addEventListener('mousemove', (e) => {
+      if (this.container.classList.contains('collapsed')) return;
+      const rect = this.stage.getBoundingClientRect();
+      const x = (e.clientX - rect.left) / rect.width - 0.5;
+      const y = (e.clientY - rect.top) / rect.height - 0.5;
+      this.scene.style.transform = `rotateY(${x * 12}deg) rotateX(${-y * 12}deg)`;
+    });
+
+    this.stage.addEventListener('mouseleave', () => {
+      this.scene.style.transform = `rotateY(0deg) rotateX(0deg)`;
+    });
+  }
+
+  updateCarousel() {
+    const total = this.ecoCards.length;
+    this.ecoCards.forEach((card, i) => {
+      let offset = i - this.currentIdx;
+      
+      if (offset > total / 2) offset -= total;
+      if (offset < -total / 2) offset += total;
+      
+      const absOffset = Math.abs(offset);
+      const sign = Math.sign(offset);
+      
+      let x = 0, z = 0, rotY = 0, opacity = 1, blur = 0, brightness = 1;
+      
+      if (offset === 0) {
+        x = 0; z = 120; rotY = 0;
+        opacity = 1; blur = 0; brightness = 1;
+        card.style.zIndex = 100;
+        card.style.borderColor = 'var(--purple)';
+        card.classList.add('active');
+      } else {
+        x = sign * (130 + (absOffset - 1) * 70);
+        z = -absOffset * 80;
+        rotY = sign * -25;
+        opacity = absOffset > 3 ? 0 : (1 - absOffset * 0.25);
+        blur = absOffset * 1.5;
+        brightness = 1 - (absOffset * 0.25);
+        card.style.zIndex = 100 - absOffset;
+        card.style.borderColor = 'rgba(255,255,255,0.1)';
+        card.classList.remove('active');
+      }
+      
+      card.style.transform = `translateX(${x}px) translateZ(${z}px) rotateY(${rotY}deg)`;
+      card.style.opacity = opacity;
+      card.style.filter = `blur(${blur}px) brightness(${brightness})`;
+      card.style.pointerEvents = absOffset > 2 ? 'none' : 'auto';
+    });
+  }
+
+  startAutoRotate() {
+    clearInterval(this.autoRotateInterval);
+    this.autoRotateInterval = setInterval(() => {
+      this.currentIdx = (this.currentIdx + 1) % this.ecoCards.length;
+      this.updateCarousel();
+    }, 2500);
+  }
+}
+
+// Instantiate Galleries
+const cyberGallery = new CoverflowGallery({
+  toggleId: 'cyberToggle',
+  containerId: 'cyberContainer',
+  stageId: 'cyberStage',
+  sceneId: 'cyberScene',
+  images: [
+    "assets/cyber_app/01_Splash_Screen.png",
+    "assets/cyber_app/02_loginScreen.png",
+    "assets/cyber_app/03_Analysis_Loading.png",
+    "assets/cyber_app/04_Analysis_Result.png",
+    "assets/cyber_app/05_Dashboard_Screen.png",
+    "assets/cyber_app/06_Security_analytics_Screen",
+    "assets/cyber_app/07_Details_SHAP.png",
+    "assets/cyber_app/02_Hoistory.png",
+  ]
+});
+
+const campusGallery = new CoverflowGallery({
+  toggleId: 'campusToggle',
+  containerId: 'campusContainer',
+  stageId: 'campusStage',
+  sceneId: 'campusScene',
+  images: [
+    "assets/campus_app/02a_Student_Dashboard.png",
+    "assets/campus_app/03b_QR_Attendance_System_student.png",
+    "assets/campus_app/03b_QR_Attendance_System_faculty.png",
+    "assets/campus_app/04_Student_Complaints.png",
+    "assets/campus_app/05_Timetable_Editor.png",
+    "assets/campus_app/06_SSM_Dashboard.png",
+    "assets/campus_app/06_Principal_Dashboard_System_Reports.png",
+    "assets/campus_app/07_Login_Screens_student.png",
+    "assets/campus_app/07_Login_Screens_faculty.png",
+    "assets/campus_app/08_Role_Selection.png"
+  ]
+});
+
+const ssmGallery = new CoverflowGallery({
+  toggleId: 'ssmToggle',
+  containerId: 'ssmContainer',
+  stageId: 'ssmStage',
+  sceneId: 'ssmScene',
+  images: [
+    "assets/ssm_app/01_login_screen.png",
+    "assets/ssm_app/02_Student_dashboard.png",
+    "assets/ssm_app/03_ssm_ocr_screen.png",
+    "assets/ssm_app/04_mentor_review.png",
+    "assets/ssm_app/05_admin_screen.png",
+    "assets/ssm_app/06_Tech_Stack_Diagram.png"
+  ]
+});
+
+// Lightbox logic
+document.querySelectorAll('.project-card img:not(.eco-card img)').forEach(img => {
+  img.addEventListener('click', () => {
+    if (img.classList.contains('global-rotating')) return;
+    img.classList.add('global-rotating');
+    
+    setTimeout(() => {
+      lightboxImg.src = img.src;
+      lightbox.classList.add('active');
+    }, 300);
+    
+    setTimeout(() => { img.classList.remove('global-rotating'); }, 600);
+  });
+});
+
+lightbox.addEventListener('click', () => {
+  lightbox.classList.remove('active');
+  // Resume animations for any open galleries
+  if (!document.getElementById('campusContainer').classList.contains('collapsed')) {
+    campusGallery.startAutoRotate();
+  }
+  if (!document.getElementById('ssmContainer').classList.contains('collapsed')) {
+    ssmGallery.startAutoRotate();
+  }
+  if (!document.getElementById('cyberContainer').classList.contains('collapsed')) {
+    cyberGallery.startAutoRotate();
+  }
+});
+
+
+// Cursor Registration
+function registerEcoHovers() {
+  const els = document.querySelectorAll('.eco-card, .eco-toggle-btn');
+  els.forEach(el => {
+    el.addEventListener('mouseenter', () => {
+      cur.style.width = '16px';
+      cur.style.height = '16px';
+      cur.style.opacity = '0.5';
+      curRing.style.width = '52px';
+      curRing.style.height = '52px';
+      
+      const icon = el.getAttribute('data-icon') || '🖼️';
+      const label = el.getAttribute('data-label') || 'View';
+      curLabel.innerHTML = `<span>${icon}</span> <span>${label}</span>`;
+      curLabel.style.opacity = '1';
+      curLabel.style.transform = 'translate(25px, 25px) scale(1)';
+    });
+    el.addEventListener('mouseleave', () => {
+      cur.style.width = '10px';
+      cur.style.height = '10px';
+      cur.style.opacity = '1';
+      curRing.style.width = '36px';
+      curRing.style.height = '36px';
+      curLabel.style.opacity = '0';
+      curLabel.style.transform = 'translate(20px, 20px) scale(0.8)';
+    });
+  });
+}
+registerEcoHovers();
+
+

@@ -184,6 +184,26 @@
         </div>
         <a href="https://github.com/Muhammed-Nabeel-04/praesidiumx-api" target="_blank" class="project-link" data-icon="⌥" data-label="Source code">GitHub ↗</a>
       </div>
+
+      <!-- TOGGLE BUTTON CYBER -->
+      <div class="eco-toggle-wrap">
+        <button class="eco-toggle-btn" id="cyberToggle" data-icon="✨" data-label="Open">
+          <span>Explore Ecosystem Hub</span>
+          <svg class="toggle-icon" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M7 10L12 15L17 10" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+        </button>
+      </div>
+
+      <!-- UNIQUE 3D ECOSYSTEM HUB CYBER -->
+      <div class="ecosystem-container collapsed cyber-gallery" id="cyberContainer">
+        <div class="ecosystem-stage" id="cyberStage">
+          <div class="eco-background-grid"></div>
+          <div class="eco-3d-scene" id="cyberScene">
+            <!-- Cards will be dynamically managed here -->
+          </div>
+        </div>
+      </div>
     </div>
 
     <div class="project-card reveal" data-icon="🎓" data-label="OCR Education">
@@ -211,6 +231,26 @@
           <div class="project-stat-label">user roles</div>
         </div>
         <a href="https://github.com/Muhammed-Nabeel-04/SSM-project" target="_blank" class="project-link" data-icon="⌥" data-label="Source code">GitHub ↗</a>
+      </div>
+
+      <!-- TOGGLE BUTTON SSM -->
+      <div class="eco-toggle-wrap">
+        <button class="eco-toggle-btn" id="ssmToggle" data-icon="✨" data-label="Open">
+          <span>Explore Ecosystem Hub</span>
+          <svg class="toggle-icon" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M7 10L12 15L17 10" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+        </button>
+      </div>
+
+      <!-- UNIQUE 3D ECOSYSTEM HUB SSM -->
+      <div class="ecosystem-container collapsed ssm-gallery" id="ssmContainer">
+        <div class="ecosystem-stage" id="ssmStage">
+          <div class="eco-background-grid"></div>
+          <div class="eco-3d-scene" id="ssmScene">
+            <!-- Cards will be dynamically managed here -->
+          </div>
+        </div>
       </div>
     </div>
 
@@ -240,6 +280,27 @@
         </div>
         <a href="https://github.com/Muhammed-Nabeel-04" target="_blank" class="project-link" data-icon="⌥" data-label="Source code">GitHub ↗</a>
       </div>
+
+      <!-- TOGGLE BUTTON -->
+      <div class="eco-toggle-wrap">
+        <button class="eco-toggle-btn" id="campusToggle" data-icon="✨" data-label="Open">
+          <span>Explore Ecosystem Hub</span>
+          <svg class="toggle-icon" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M7 10L12 15L17 10" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+        </button>
+      </div>
+
+      <!-- UNIQUE 3D ECOSYSTEM HUB (Hidden by default) -->
+      <div class="ecosystem-container collapsed" id="campusContainer">
+        <div class="ecosystem-stage" id="campusStage">
+          <div class="eco-background-grid"></div>
+          <div class="eco-3d-scene" id="campusScene">
+            <!-- Cards will be dynamically managed here -->
+          </div>
+        </div>
+      </div>
+
     </div>
 
   </div>
@@ -344,6 +405,12 @@
 <footer>
   <p>Designed & built by Muhammed Nabeel · 2026</p>
 </footer>
+
+<!-- Lightbox for images (moved out of project card to avoid clipping) -->
+<div id="lightbox" class="lightbox-overlay">
+  <img src="" alt="Enlarged screenshot">
+  <div class="lightbox-close">✕</div>
+</div>
 
 <script src="script.js"></script>
 </body>
