@@ -563,7 +563,7 @@ const cyberGallery = new CoverflowGallery({
     "assets/cyber_app/03_Analysis_Loading.png",
     "assets/cyber_app/04_Analysis_Result.png",
     "assets/cyber_app/05_Dashboard_Screen.png",
-    "assets/cyber_app/06_History_Screen.png",
+    "assets/cyber_app/06_Security_analytics_Screen.png",
     "assets/cyber_app/07_ML_Details_SHAP.png",
     "assets/cyber_app/02_Hoistory.png"
   ]
